@@ -85,7 +85,7 @@ const statement = 'I lead the team, I talk to the client, and I ship the product
 <section id="brands"><div class="wrap wide">
   <div class="head rv" style="padding:0"><span class="eyebrow">Brands</span><h2>Trusted by names you know.</h2><p class="lede">And connected to every channel their customers use.</p></div>
   <div class="logos rv">
-    {[['truevalue','True Value'],['doitbest','Do it Best',1],['ace','Ace Hardware'],['timbertech','TimberTech (AZEK)'],['jameshardie','James Hardie'],['milwaukee','Milwaukee Tool',1],['orgill','Orgill'],['disney','Disney',1],['spectrum','Spectrum'],['bigmarker','BigMarker'],['ezadtv','EZ-AD TV'],['dentaloo','Dentaloo'],['issa','Issa Dental Group',1],['soch','SOCH Clinics']].map(([f, n, t]) => <img class={t ? 't' : ''} src={`/assets/clients/${f}.png`} alt={n}>)}
+    {[['truevalue','True Value'],['doitbest','Do it Best',1],['ace','Ace Hardware'],['timbertech','TimberTech (AZEK)'],['jameshardie','James Hardie'],['milwaukee','Milwaukee Tool',1],['orgill','Orgill'],['disney','Disney',1],['spectrum','Spectrum'],['bigmarker','BigMarker'],['ezadtv','EZ-AD TV'],['dentaloo','Dentaloo'],['issa','Issa Dental Group',1],['soch','SOCH Clinics']].map(([f, n, t]) => <img class={t ? 't' : ''} src={`/assets/clients/${f}.svg`} alt={n}>)}
   </div>
   <div class="socials rv">{SO.map(([f, n]) => { const I = BI[f]; if (!I) return null; const dark = ['x','tiktok','threads'].includes(f); const inv = ['youtube','pinterest','google-business'].includes(f); const ko = {linkedin:['#0A66C2','2','2','20','20'],facebook:['#0866FF','7.5','4','9.5','20'],telegram:['#2AABEE','4.5','5.5','15','13']}[f]; const st = ko ? `--fg:${ko[0]}` : inv ? `--fg:${I.bg}` : (I.bg === 'IG' || dark ? '' : `--bg:${I.bg}`); return <div class="so" title={n}><span class={`tile ${f}${dark ? ' dark' : ''}${inv ? ' inv' : ''}${ko ? ' ko' : ''}`} style={st}><svg viewBox="0 0 24 24" aria-hidden="true">{ko && <rect x={ko[1]} y={ko[2]} width={ko[3]} height={ko[4]} fill="#fff"/>}<path d={I.p}/></svg></span>{n}</div>; })}</div>
   <p class="note rv">Plus email and marketing platforms: Adobe Marketo Engage, Adobe Campaign, Adobe Journey Optimizer, Mailgun, Mailchimp, HubSpot and Salesforce.</p>
@@ -405,6 +405,20 @@ textarea{min-height:110px;resize:vertical}
 footer{background:#161617;color:#86868b;font-size:12px;padding:20px 0 34px;border-top:1px solid #2c2c2e}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 footer a{color:#d2d2d7}footer a:hover{text-decoration:underline}
+
+@media(max-width:700px){
+ section{padding:64px 0}
+ .head{margin-bottom:26px}
+ .lit{padding:40px 0 64px}
+ .stats{margin-top:48px}
+ .seg{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x proximity;padding:2px 22px;margin:0 -22px 26px;max-width:none;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22px,#000 calc(100% - 22px),transparent)}
+ .seg::-webkit-scrollbar{display:none}
+ .seg button{flex:none;scroll-snap-align:center;white-space:nowrap}
+ .grid,.feat{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -22px;padding:0 22px 6px;scrollbar-width:none}
+ .grid::-webkit-scrollbar,.feat::-webkit-scrollbar{display:none}
+ .grid>*,.feat>*{flex:0 0 82vw;scroll-snap-align:center}
+ .logos{gap:22px 28px}.logos img{height:24px}.logos img.t{height:36px}
+}
 </style>
 
 <script>
@@ -486,4 +500,6 @@ $('#cform').addEventListener('submit', e => { e.preventDefault();
   const via = $('input[name=via]:checked').value;
   const url = via === 'wa' ? `https://wa.me/923414480088?text=${encodeURIComponent(body)}` : `mailto:chronos0047@gmail.com?subject=${encodeURIComponent('Hello from ' + n)}&body=${encodeURIComponent(body)}`;
   note.textContent = via === 'wa' ? 'Opening WhatsApp.' : 'Opening your email app.'; location.href = url; });
+
+document.querySelectorAll('.seg').forEach(sg => sg.addEventListener('click', e => { const b = e.target.closest('button'); if (b && sg.scrollWidth > sg.clientWidth) b.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' }); }));
 </script>
