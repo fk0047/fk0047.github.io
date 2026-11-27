@@ -76,7 +76,7 @@ const tile = (f) => { const I = BI[f]; if (!I) return null; const dark = ['x','t
   </div>
 
   <section id="archives" class="arch rv">
-    <div class="sh"><h3>Other projects</h3><p class="label">{archive.length + older.length} more products, portfolio pieces and earlier work.</p></div>
+    <details class="otherp"><summary><span class="sh"><h3>Other projects</h3><span class="label">{archive.length + older.length} more products, portfolio pieces and earlier work.</span></span><span class="vbtn mono">View all</span></summary>
     <div class="agrid">
       {archive.map(p => (
         <details class="ac">
@@ -90,6 +90,7 @@ const tile = (f) => { const I = BI[f]; if (!I) return null; const dark = ['x','t
       ))}
     </div>
     <div class="olist">{older.map(p => <details class="oi"><summary><b>{p.t}</b></summary><p>{p.d}</p><ul>{(p.b || []).map(x => <li>{x}</li>)}</ul>{p.u && <p class="lk">{p.u.map(([n, h]) => <a class="ul" href={h} target="_blank" rel="noopener">{n} ↗</a>)}</p>}</details>)}</div>
+    </details>
   </section>
 </main>
 
@@ -103,13 +104,16 @@ const tile = (f) => { const I = BI[f]; if (!I) return null; const dark = ['x','t
     <img class="me" src="/assets/fahad.jpg" alt="Fahad Khan">
     <div class="kv"><p class="label">Education</p><p class="ed"><img src="/assets/comsats.png" alt="">BSc Software Engineering<br><span>COMSATS University Islamabad · 2014 – 2018</span></p></div>
     <div class="kv"><p class="label">Certifications · {total} in total</p>
-      <ul class="cl">
-        {googleFeat.slice(0, 5).map(c => <li><span class="ci-ic g"><svg viewBox="0 0 24 24"><path d={BI.google.p}/></svg></span>{nv(c[0])}</li>)}
-        {C.filter(c => c[1] === 'PMI').map(c => <li><span class="ci-ic pmi">PMI</span>{c[0]}</li>)}
-        {C.filter(c => c[1] === 'Anthropic').map(c => <li><span class="ci-ic cl"><svg viewBox="0 0 24 24"><path d={BI.claude.p}/></svg></span>{c[0]}</li>)}
-        {C.filter(c => c[1] === 'Atlassian').slice(0, 1).map(c => <li><span class="ci-ic at"><svg viewBox="0 0 24 24"><path d={BI.atlassian.p}/></svg></span>{c[0]}</li>)}
-        <li><span class="ci-ic pmi">PMI</span>PMP <em>in progress</em></li>
-      </ul>
+      <div class="ctabs" id="ctabs" role="tablist">
+        <button role="tab" class="on" data-k="g"><span class="ci-ic g"><svg viewBox="0 0 24 24"><path d={BI.google.p}/></svg></span>Google</button>
+        <button role="tab" data-k="p"><span class="ci-ic pmi">PMI</span>PMI</button>
+        <button role="tab" data-k="a"><span class="ci-ic cl"><svg viewBox="0 0 24 24"><path d={BI.claude.p}/></svg></span>Anthropic</button>
+        <button role="tab" data-k="t"><span class="ci-ic at"><svg viewBox="0 0 24 24"><path d={BI.atlassian.p}/></svg></span>Atlassian</button>
+      </div>
+      <ul class="cl" data-k="g">{C.filter(c => /^Google/.test(c[1])).map(c => <li>{nv(c[0])}<span class="label">{c[2]}</span></li>)}</ul>
+      <ul class="cl" data-k="p" hidden>{C.filter(c => c[1] === 'PMI').map(c => <li>{c[0]}<span class="label">{c[2]}</span></li>)}<li>PMP <em>in progress</em></li></ul>
+      <ul class="cl" data-k="a" hidden>{C.filter(c => c[1] === 'Anthropic').map(c => <li>{c[0]}<span class="label">{c[2]}</span></li>)}</ul>
+      <ul class="cl" data-k="t" hidden>{C.filter(c => c[1] === 'Atlassian').map(c => <li>{c[0]}<span class="label">{c[2]}</span></li>)}</ul>
     </div>
   </div>
   <div class="ar rv">
@@ -254,12 +258,19 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:78px;z-index:50;bac
 .feed .shot img{max-width:none;aspect-ratio:1062/486;object-fit:cover;object-position:top}
 @media(max-width:860px){.feed{grid-template-columns:1fr;gap:44px}}
 #work{padding-top:90px}
-.cl{list-style:none;display:grid;gap:8px;margin-top:6px}
+.cl{list-style:none;display:grid;gap:0;margin-top:10px;max-width:460px}
+.cl li{justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--line)}.cl li .label{font-size:11.5px;white-space:nowrap}
+.ctabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.ctabs button{display:flex;align-items:center;gap:7px;border:0;background:var(--soft);border-radius:9px;padding:5px 11px 5px 5px;font-size:12.5px;color:var(--sub);cursor:pointer}.ctabs button .ci-ic{width:22px;height:22px;border-radius:6px}.ctabs button.on{color:var(--ink);box-shadow:inset 0 0 0 1px var(--or)}
 .cl li{display:flex;align-items:center;gap:10px;font-size:13.5px}.cl em{font-style:normal;color:var(--or);margin-left:4px;font-size:12px}
 .ci-ic{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;flex:none;background:#fff}
 .ci-ic svg{width:15px;height:15px}.ci-ic.g svg{fill:#4285F4}.ci-ic.cl{background:#D97757}.ci-ic.cl svg{fill:#fff}.ci-ic.at{background:#0052CC}.ci-ic.at svg{fill:#fff}
 .ci-ic.pmi{background:#F26B21;color:#fff;font-size:8.5px;font-weight:800;letter-spacing:.02em}
 img.pic{object-fit:cover;background:#fff}
+.otherp>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding-bottom:6px}
+.otherp>summary::-webkit-details-marker{display:none}.otherp>summary .sh{margin:0}.otherp>summary .label{display:block}
+.vbtn{font-size:12px;text-transform:uppercase;color:var(--or);background:var(--soft);padding:9px 14px;border-radius:8px}
+.otherp[open] .vbtn{font-size:0}.otherp[open] .vbtn::after{content:"Hide";font-size:12px}
+.otherp[open]>summary{margin-bottom:18px}
 /* project feed */
 
 .proj{padding:60px 0 40px}
@@ -330,7 +341,7 @@ img.pic{object-fit:cover;background:#fff}
 .org summary{list-style:none;cursor:pointer;display:flex;gap:12px;align-items:flex-start;padding:9px 0}
 .org summary::-webkit-details-marker{display:none}
 .org b{font-size:14.5px;font-weight:600}.org em{font-style:normal;color:var(--sub);font-size:13px}
-.org small{font-size:13px;color:var(--body)}.ar{color:var(--sub)}.org .ar{color:var(--sub)}
+.org small{font-size:13px;color:var(--body)}.org .ar{color:var(--sub)}
 .ol{width:22px;height:22px;border-radius:5px;overflow:hidden;flex:none;display:grid;place-items:center;background:#fff;margin-top:2px}
 .ol img{width:100%;height:100%;object-fit:cover}.ol svg{width:13px;height:13px;fill:#333;color:#333}.ol i{font-style:normal;font-size:9px;font-weight:700;color:#333}
 .role{padding:6px 0 14px 34px}.role p b{font-size:13.5px}.pr{margin-left:8px;font-size:10px;text-transform:uppercase;color:var(--or);letter-spacing:.04em}
@@ -393,6 +404,8 @@ const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 const seg = document.getElementById('sseg');
 if (seg) seg.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; seg.querySelectorAll('button').forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-selected', x === b ? 'true' : 'false'); }); document.querySelectorAll('.skills .panel').forEach(p => p.hidden = p.dataset.i !== b.dataset.i); if (seg.scrollWidth > seg.clientWidth) b.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' }); });
+const ct = document.getElementById('ctabs');
+if (ct) ct.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; ct.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); document.querySelectorAll('.cl[data-k]').forEach(u => u.hidden = u.dataset.k !== b.dataset.k); });
 const badge = document.getElementById('badge');
 if (badge && matchMedia('(hover:hover) and (prefers-reduced-motion:no-preference)').matches) {
   const hero = document.querySelector('.hero');
