@@ -162,9 +162,9 @@ const statement = 'I lead the team, I talk to the client, and I ship the product
 <section id="beyond"><div class="wrap wide">
   <div class="head rv" style="padding:0"><span class="eyebrow">Beyond work</span><h2>Curious, always.</h2></div>
   <div class="life">
-    <div class="lt rv" style="--c:linear-gradient(160deg,#3a3a3c,#0b0b0c);--d:0s"><h3>Gaming</h3><p>Lifelong gamer, new releases and old favourites.</p></div>
+    <div class="lt rv ph" style="--c:url(/assets/life/gaming.jpg) center/cover #000;--d:0s"><h3>Gaming</h3><p>Lifelong gamer, new releases and old favourites.</p></div>
     <div class="lt rv" style="--c:linear-gradient(160deg,#2c2c2e,#000);--d:.08s"><h3>Tech</h3><p>First in line for every new launch, model and gadget.</p></div>
-    <div class="lt rv" style="--c:linear-gradient(160deg,#48484a,#111);--d:.16s"><h3>Anime</h3><p>From the classics to this season's talk of the town.</p></div>
+    <div class="lt rv ph" style="--c:url(/assets/life/anime.jpg) center 20%/cover #fff;--d:.16s"><h3>Anime</h3><p>From the classics to this season's talk of the town.</p></div>
     <div class="lt rv" style="--c:linear-gradient(160deg,#1c1c1e,#3a3a3c);--d:.24s"><h3>Shows &amp; movies</h3><p>Binge-watching, and movie nights out with friends.</p></div>
   </div>
   <p class="edu rv"><img class="edu-logo" src="/assets/comsats.png" alt="COMSATS University Islamabad"><span><b>BSc Software Engineering</b><br>COMSATS University Islamabad, 2014 – 2018</span></p>
@@ -370,6 +370,7 @@ nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-betw
 .life{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 @media(max-width:900px){.life{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:480px){.life{grid-template-columns:1fr}}
 .lt{border:1px solid #2c2c2e;border-radius:22px;padding:26px;min-height:230px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:var(--c)}
+.lt{position:relative;overflow:hidden}.lt.ph::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 15%,rgba(0,0,0,.55) 50%,rgba(0,0,0,.92));pointer-events:none}.lt>*{position:relative}
 .lt h3{font-family:var(--cond);text-transform:uppercase;font-weight:500;font-size:34px}.lt p{font-size:15px;color:rgba(255,255,255,.88);margin-top:6px}
 .edu{text-align:center;margin-top:46px;font-size:17px;color:var(--sub)}.edu b{color:var(--text);font-weight:600}
 
