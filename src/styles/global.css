@@ -1,6 +1,6 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#ffffff;--ink:#111111;--sub:#8a8a8e;--body:#3c3c3f;--line:#ececec;--soft:#f4f4f5;--blue:#0a66c2;
+  --bg:#0c0c0e;--ink:#f2f2f3;--sub:#8b8b92;--body:#c2c2c8;--line:#26262b;--soft:#16161a;--card:#1c1c21;--blue:#ff7a1a;--or:#ff7a1a;--or2:#ff4d00;
   --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter","Helvetica Neue",Arial,sans-serif;
   --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   --ease:cubic-bezier(.22,1,.36,1);
