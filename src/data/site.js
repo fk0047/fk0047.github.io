@@ -258,7 +258,7 @@ const C=[
 ];
 const X=["Six Sigma Black Belt (LinkedIn Learning)","Six Sigma Green Belt (LinkedIn Learning)","Six Sigma Foundations (LinkedIn Learning)","Agile Foundations (LinkedIn Learning)","Agile Requirements Foundations (LinkedIn Learning)","Scrum Advanced (LinkedIn Learning)","Scrum Basics (LinkedIn Learning)","Project Management Foundations (LinkedIn Learning)","JIRA Advanced (LinkedIn Learning)","JIRA Basics (LinkedIn Learning)","Gantt Charts (LinkedIn Learning)","Business Development (LinkedIn Learning)","Data Visualization (LinkedIn Learning)","Data Science Foundations L1 & L2 (IBM)","Introduction to Data Science (IBM)","SQL & Relational Databases (IBM)","Test Automation Foundations (Test Automation University)"];
 
-const SO=[["facebook","Facebook","png"],["instagram","Instagram","png"],["linkedin","LinkedIn","png"],["x","X (Twitter)","png"],["tiktok","TikTok","png"],["youtube","YouTube","png"],["threads","Threads","png"],["pinterest","Pinterest","png"],["bluesky","Bluesky","png"],["google-business","Google Business Profile","png"],["mastodon","Mastodon","png"],["telegram","Telegram","png"],["wordpress","WordPress","png"]];
+const SO=[["facebook","Facebook","png"],["instagram","Instagram","png"],["linkedin","LinkedIn","png"],["x","X (Twitter)","png"],["tiktok","TikTok","png"],["youtube","YouTube","png"],["threads","Threads","png"],["pinterest","Pinterest","png"],["bluesky","Bluesky","png"],["google-business","Google Business","png"],["mastodon","Mastodon","png"],["telegram","Telegram","png"],["wordpress","WordPress","png"]];
 
 const O=[
  {n:"EZ-AD TV",m:"Detroit, MI · Remote · Full-time · May 2021 – Present",tag:"Promoted twice",r:[
