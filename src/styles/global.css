@@ -1,0 +1,59 @@
+/*
+VOICE   Apple launch page: one idea per section, few words, the work does the talking
+IDEA    Fahad's career presented like an iPhone product page, each section a feature
+PICTURE real screenshots, client logos, verified badges; one scroll-lit statement as the signature moment
+COLOUR  iPhone 17 Pro finishes: Cosmic Orange, Deep Blue, Silver, plus Space Black and Midnight Green
+TYPE    SF Pro (system) with Inter fallback, Apple's scale 96 / 56 / 32 / 21 / 17
+*/
+:root{
+  --space:#0b0b0d;--deep:#1c2638;--green:#1f2c27;--orange:#f26b1d;--orange2:#ff8a3d;--sierra:#a8c0d8;--silver:#f5f5f7;--star:#f6f1ea;
+  --bg:var(--space);--tile:#1d1d1f;--tile2:#2a2a2c;--text:#f5f5f7;--sub:#98989d;--body:#d2d2d7;--link:#2997ff;--line:rgba(255,255,255,.14);--fill:rgba(255,255,255,.12);--inv:#000;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Inter,system-ui,sans-serif;
+  --disp:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Inter,system-ui,sans-serif;
+  --ease:cubic-bezier(.28,.11,.32,1);
+  --grad:linear-gradient(90deg,#ffb36b 0%,var(--orange) 30%,#e9b9a0 52%,var(--sierra) 72%,#5e8fd8 100%);
+}
+.s-light{--bg:var(--silver);--tile:#fff;--tile2:#fbfbfd;--text:#1d1d1f;--sub:#6e6e73;--body:#424245;--link:#0066cc;--line:#d2d2d7;--fill:rgba(0,0,0,.06);--inv:#fff}
+.s-white{--bg:#fff;--tile:var(--silver);--tile2:#ececf0;--text:#1d1d1f;--sub:#6e6e73;--body:#424245;--link:#0066cc;--line:#d2d2d7;--fill:rgba(0,0,0,.06);--inv:#fff}
+.s-star{--bg:var(--star);--tile:#fffdf9;--tile2:#fff;--text:#1d1d1f;--sub:#6f6a64;--body:#45413c;--link:#b4470c;--line:#e4dbcf;--fill:rgba(60,40,20,.07);--inv:#fff}
+.s-deep{--bg:var(--deep);--tile:#26324a;--tile2:#2e3b55;--text:#f5f5f7;--sub:#a5b2c6;--body:#d6dde8;--link:var(--sierra);--line:rgba(255,255,255,.16);--fill:rgba(255,255,255,.12);--inv:#1c2638}
+.s-green{--bg:var(--green);--tile:#283832;--tile2:#2f413a;--text:#f2f5f3;--sub:#a3b3ac;--body:#d8e1dc;--link:#8fd3b5;--line:rgba(255,255,255,.15);--fill:rgba(255,255,255,.12);--inv:#1f2c27}
+*{box-sizing:border-box;margin:0;padding:0;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:44px}
+body{background:var(--space);color:#f5f5f7;font:17px/1.47 var(--sans);letter-spacing:-.022em;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;letter-spacing:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1024px;margin:0 auto;padding:0 22px}
+.wide{max-width:1200px}
+section{background:var(--bg);color:var(--text);padding:clamp(84px,10vw,130px) 0}
+.head{text-align:center;max-width:800px;margin:0 auto 54px}
+.eyebrow{display:block;font-size:21px;font-weight:600;letter-spacing:.011em;color:var(--orange);margin-bottom:6px}
+.s-deep .eyebrow,.s-green .eyebrow{color:var(--orange2)}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:600;text-wrap:balance}
+h2{font-size:clamp(40px,5.6vw,64px);line-height:1.06;letter-spacing:-.009em}
+.lede{font-size:clamp(19px,2vw,21px);line-height:1.38;color:var(--sub);margin-top:14px;letter-spacing:.011em}
+.lede b{color:var(--text);font-weight:600}
+.link{color:var(--link);display:inline-flex;align-items:center}
+.link:hover{text-decoration:underline}
+.link:after{content:"\203A";font-size:1.25em;line-height:1;margin-left:4px;transition:transform .2s var(--ease)}
+.link:hover:after{transform:translateX(2px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 24px;border-radius:980px;background:var(--orange);color:#1a0b02;font-size:17px;font-weight:500;border:0;cursor:pointer;transition:background .25s var(--ease),transform .12s}
+.btn:hover{background:var(--orange2)}
+.btn.alt{background:transparent;color:var(--link);box-shadow:inset 0 0 0 1px currentColor}
+.btn.alt:hover{background:var(--fill)}
+.btn:active,.seg button:active,.arr:active,.cw:active{transform:scale(.97)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:4px 10px 4px 7px;border-radius:980px;background:var(--fill);color:var(--text);letter-spacing:0}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--b,#98989d);flex:none}
+.chip img{width:15px;height:15px;border-radius:50%;flex:none}
+.chip.p{padding-left:10px}
+
+/* motion */
+.rv{opacity:0;transform:translateY(46px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.zoom{transform:scale(.92);opacity:0;transition:transform 1.2s var(--ease),opacity 1.2s var(--ease)}
+.zoom.in{transform:none;opacity:1}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv,.zoom{opacity:1;transform:none}}
+@media (prefers-reduced-transparency:reduce){nav{background:#161617!important;backdrop-filter:none!important}}

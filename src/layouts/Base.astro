@@ -1,0 +1,30 @@
+---
+import '../styles/global.css';
+const { title = 'Fahad Khan | AI Product Manager', description = 'Fahad Khan: AI Product Manager, Product Owner and Technical Project Manager. 50+ products shipped across AI, SaaS, digital signage, marketing tech, eCommerce and Web3.' } = Astro.props;
+const ld = {"@context":"https://schema.org","@type":"Person","name":"Fahad Khan","jobTitle":"AI Product Manager / Technical Project Manager","url":"https://fk0047.github.io/","email":"mailto:chronos0047@gmail.com","telephone":"+923414480088","address":{"@type":"PostalAddress","addressCountry":"PK"},"alumniOf":"COMSATS University Islamabad","sameAs":["https://www.linkedin.com/in/fk0047/","https://github.com/fk0047","https://www.credly.com/users/fk0047"]};
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content={description}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:image" content="https://fk0047.github.io/assets/fahad.jpg">
+<meta property="og:url" content="https://fk0047.github.io/">
+<meta property="og:type" content="profile">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://fk0047.github.io/">
+<meta name="theme-color" content="#0b0b0d">
+<link rel="icon" href="/assets/fahad.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json" set:html={JSON.stringify(ld)}></script>
+</head>
+<body>
+<slot />
+</body>
+</html>
