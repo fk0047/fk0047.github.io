@@ -148,6 +148,8 @@ section{padding:clamp(80px,11vw,140px) 0}
 .card .sd{position:absolute;right:10px;bottom:10px;display:flex;gap:6px}
 .card .sd button{width:32px;height:32px;border-radius:50%;border:0;background:rgba(0,0,0,.7);color:#fff;font-size:12px;cursor:pointer}
 .card .sd button.on{background:var(--ember);color:#160800}
+.card .cover{aspect-ratio:16/9;display:flex;align-items:flex-end;padding:22px;background:radial-gradient(circle at 85% 15%,color-mix(in srgb,var(--c2) 70%,transparent),transparent 55%),radial-gradient(circle at 10% 110%,color-mix(in srgb,var(--c1) 85%,transparent),transparent 60%),#07100b}
+.card .cover span{font-family:var(--display);font-weight:800;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.03em;line-height:1.05;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.4)}
 .card .body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
 .card .k{font-size:13px;font-weight:600;color:var(--neon)}
 .card h3{font-size:21px;font-weight:700;margin:6px 0 2px;letter-spacing:-.015em}
@@ -313,6 +315,8 @@ footer a{color:#d2d2d7}
   <div class="filters" id="pfilters"></div>
   <p class="count" id="pcount"></p>
   <div class="grid" id="projects"></div>
+  <button class="pill ghost toggle-old" id="morebtn" aria-expanded="false"></button>
+  <div class="grid" id="moreprojects" hidden style="margin-top:18px"></div>
 </div></section>
 
 <section id="clients"><div class="wrap">
@@ -398,7 +402,7 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const L="assets/social/";
 const BR={
  "Facebook":["#1877F2",L+"facebook.png"],"Instagram":["#E1306C",L+"instagram.png"],"Instagram publishing":["#E1306C",L+"instagram.png"],"LinkedIn":["#0A66C2",L+"linkedin.png"],"X":["#e7e9ea",L+"x.png"],"X / Twitter":["#e7e9ea",L+"x.png"],"TikTok":["#FE2C55",L+"tiktok.png"],"YouTube":["#FF0000",L+"youtube.png"],"Threads":["#e7e9ea",L+"threads.png"],"Pinterest":["#E60023",L+"pinterest.png"],"Bluesky":["#1185FE",L+"bluesky.png"],"Google Business Profile":["#4285F4",L+"google-business.png"],"Mastodon":["#6364FF",L+"mastodon.png"],"Telegram":["#26A5E4",L+"telegram.png"],"WordPress":["#21759B",L+"wordpress.png"],"WordPress publishing":["#21759B",L+"wordpress.png"],"WordPress (custom PHP themes)":["#21759B",L+"wordpress.png"],
- "Meta":["#0866FF"],"Meta Graph API":["#0866FF"],"Facebook apps & App Review":["#1877F2",L+"facebook.png"],"App Review":["#0866FF"],"Discord":["#5865F2",L+"discord.png"],"Twilio":["#F22F46"],"Telnyx":["#00C08B"],"Mailchimp":["#FFE01B"],"Mailgun":["#F06B66"],"Adobe Marketo Engage":["#5C4C9F"],"Adobe Journey Optimizer":["#FA0F00"],"Adobe AJO":["#FA0F00"],"HubSpot":["#FF7A59"],"Salesforce":["#00A1E0"],"Google Ads":["#4285F4"],
+ "Meta":["#0866FF"],"Meta Graph API":["#0866FF"],"Facebook apps & App Review":["#1877F2",L+"facebook.png"],"App Review":["#0866FF"],"Discord":["#5865F2",L+"discord.png"],"Twilio":["#F22F46"],"Telnyx":["#00C08B"],"Mailchimp":["#FFE01B"],"Mailgun":["#F06B66"],"Adobe Marketo Engage":["#5C4C9F"],"Adobe Journey Optimizer":["#FA0F00"],"Adobe Campaign":["#FA0F00"],"Adobe Customer Journey Analytics":["#FA0F00"],"Adobe AJO":["#FA0F00"],"HubSpot":["#FF7A59"],"Salesforce":["#00A1E0"],"Google Ads":["#4285F4"],
  "OpenAI":["#10A37F"],"OpenAI GPT":["#10A37F"],"ChatGPT":["#10A37F"],"Claude":["#D97757"],"Claude Code":["#D97757"],"Gemini":["#8E75FF"],"Google Gemini":["#8E75FF"],"Google Vertex AI":["#4285F4"],"xAI Grok":["#e7e9ea"],"DeepSeek":["#4D6BFE"],"Qwen":["#615CED"],"Kimi":["#1E90FF"],"RunPod":["#673AB7"],
  "Stripe":["#635BFF"],"Stripe & Stripe Connect":["#635BFF"],"Stripe Connect":["#635BFF"],"PayPal":["#0070E0"],"Authorize.Net":["#1C3F94"],"Helcim":["#00A3E0"],"MoonPay":["#7D00FF"],"QuickBooks":["#2CA01C"],"QuickBooks Online":["#2CA01C"],"Shopify":["#95BF47"],"Shopify Liquid":["#95BF47"],"WooCommerce":["#96588A"],"Amazon SP-API":["#FF9900"],"Amazon Seller Central":["#FF9900"],"Walmart":["#0071CE"],"Walmart Marketplace":["#0071CE"],"Google Merchant":["#4285F4"],"Google Merchant Center":["#4285F4"],"EasyPost":["#2253E2"],"EasyPost (UPS, USPS, FedEx)":["#2253E2"],"UPS":["#FFB500"],"USPS":["#333366"],"FedEx":["#4D148C"],"Magento":["#EE672F"],"Elementor":["#92003B"],
  "AWS":["#FF9900"],"Microsoft Azure":["#0078D4"],"Azure":["#0078D4"],"Google Cloud Platform":["#4285F4"],"Firebase":["#FFCA28"],"Firebase / Firestore":["#FFCA28"],"Cloudflare":["#F38020"],"Docker":["#2496ED"],"Kubernetes":["#326CE5"],"GitHub":["#e7e9ea",L+"github.png"],"GitLab":["#FC6D26"],"Bitbucket":["#2684FF"],"Jira":["#0052CC"],"Confluence":["#1868DB"],"Trello":["#0079BF"],"Postman":["#FF6C37"],"ClickUp":["#7B68EE"],"Monday.com":["#FF3D57"],"Asana":["#F06A6A"],"Notion":["#e7e9ea"],
@@ -496,6 +500,10 @@ const P=[
  {c:"Social & Messaging",t:"Social media integrations",w:"2020 – Present",
   d:"Publishing, ads and analytics across every major social channel.",
   b:["Facebook, Instagram, Threads, LinkedIn, X / Twitter, TikTok, YouTube, Pinterest, Bluesky, Mastodon, Telegram, Discord, Google Business Profile and WordPress","Facebook / Instagram / Google Ads campaigns and reporting","Adobe Marketo, HubSpot, Mailchimp and Mailgun email marketing"],s:["Meta","TikTok","X","LinkedIn","Discord"]},
+ {c:"Social & Messaging",t:"Email marketing & campaign automation",w:"2020 – Present",f:1,g:["#FA0F00","#ff7a1a"],
+  d:"Email and lifecycle campaigns for retailers, brands and SaaS clients, from list segmentation and templates to sending, tracking and reporting, with AI writing the copy.",
+  b:["Adobe Marketo Engage and Adobe Campaign programs for enterprise brands","Adobe Journey Optimizer (AJO) sending on Do It Best's behalf, with CJA open and click reporting","Mailgun and Mailchimp for transactional and marketing email at scale","HubSpot and Salesforce CRM sync, plus segment-based AI email and SMS campaigns in Dentaloo","Opt-out and suppression handling, deliverability and tracking pixels","AI-written personalized offers, measured on open rates"],
+  s:["Adobe Marketo Engage","Adobe Campaign","Adobe Journey Optimizer","Mailgun","Mailchimp","HubSpot","Salesforce","Twilio"]},
  {c:"Social & Messaging",t:"Saturn Text",w:"Feb 2022 – Mar 2022 · EZ-AD TV",d:"Text blast platform for business SMS campaigns, with prepaid credit and auto-refill billing.",s:["Twilio","Telnyx","SMS"]},
  // Mobile
  {c:"Digital Signage",t:"EZ-AD TV Android & iOS apps",w:"Sep 2021 – Present · EZ-AD TV",f:1,g:["#00e5ff","#ff7a1a"],i:["ezad-ios","ezad-play"],u:[["App Store","https://apps.apple.com/us/app/ez-ad-mobile-app/id825347019"],["Google Play","https://play.google.com/store/apps/details?id=com.flexsin.ezadtv&hl=en_US"]],
@@ -575,6 +583,7 @@ const S=[
  ["Payments",["Stripe & Stripe Connect","PayPal","Authorize.Net","Helcim","MoonPay","QuickBooks Online","Subscriptions & recurring billing","Refunds & reconciliation","EasyPost (UPS, USPS, FedEx)","POS systems"]],
  ["Security, Identity & IT",["SSO (OIDC, SAML, AD FS)","OAuth 2.0 / JWT","RBAC","Microsoft Entra ID","Microsoft 365","SharePoint","Password vaults","VPN-only access","IT support & admin","Network security","SOC 2","PCI DSS","HIPAA","GDPR / CCPA"]],
  ["Product & Delivery",["Product strategy & roadmaps","Backlog & sprint planning","BRD / SRS / SDS","User stories & acceptance criteria","Wireframes (Adobe XD)","UAT & QA workflows","Stakeholder management","Vendor management","Risk management","Six Sigma","Scrum / Kanban"]],
+ ["Email & marketing automation",["Adobe Marketo Engage","Adobe Campaign","Adobe Journey Optimizer","Adobe Customer Journey Analytics","Mailgun","Mailchimp","HubSpot","Salesforce","Email templates & HTML email","Segmentation & audiences","Drip & lifecycle campaigns","Deliverability & suppression lists","Twilio","Telnyx","SMS campaigns"]],
  ["Data & Marketing",["Power BI","Tableau","Google Analytics","Looker Studio","SEO / SEM","Email marketing","Social media marketing","Inbound marketing","Digital customer engagement"]]
 ];
 
@@ -681,13 +690,21 @@ mark();restart();
 /* project grid */
 const cats=["All",...new Set(P.map(p=>p.c))];
 const pf=document.getElementById('pfilters'),pg=document.getElementById('projects'),pc=document.getElementById('pcount');
-const renderP=c=>{const Lp=P.filter(p=>c==="All"||p.c===c);if(c!=="All")Lp.sort((a,b)=>((b.f?2:0)+(b.i?1:0))-((a.f?2:0)+(a.i?1:0)));
-  pg.innerHTML=Lp.map(p=>`<div class="card">${p.i?`<div class="shot${p.x?' pdf':''}"><img loading="lazy" src="${A}${p.i[0]}.jpg" alt="${esc(p.t)} screenshot">${p.i.length>1?`<div class="sd">${p.i.map((x,k)=>`<button class="${k?'':'on'}" data-src="${A}${x}.jpg" aria-label="Screenshot ${k+1}">${k+1}</button>`).join('')}</div>`:''}</div>`:''}<div class="body"><div class="k">${esc(p.c)}</div><h3>${esc(p.t)}</h3><div class="when">${esc(p.w)}</div><p>${esc(p.d)}</p>${p.b?`<ul>${p.b.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}${chips(p.s)}${visit(p)}</div></div>`).join('');
-  pg.querySelectorAll('.sd button').forEach(b=>b.onclick=()=>{const sh=b.closest('.shot');sh.querySelector('img').src=b.dataset.src;sh.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b))});
-  pc.textContent=`Showing ${Lp.length} of ${P.length} projects`;
+const mg=document.getElementById('moreprojects'),mbtn=document.getElementById('morebtn');
+const CC={'AI':['#00e5ff','#0c3b2e'],'SaaS & Platforms':['#1f8a57','#00e5ff'],'Digital Signage':['#00e5ff','#ff7a1a'],'Marketing Tech':['#ff7a1a','#1f8a57'],'eCommerce & Payments':['#635BFF','#00e5ff'],'Social & Messaging':['#E1306C','#ff7a1a'],'Enterprise & Media':['#0A66C2','#00e5ff'],'Web3 & Crypto':['#F0B90B','#627EEA'],'Mobile':['#3DDC84','#00e5ff'],'Healthcare':['#00A3AD','#1f8a57'],'Earlier work':['#8f9a94','#1f8a57']};
+const cover=p=>{const g=p.g||CC[p.c]||['#1f8a57','#00e5ff'];return`<div class="cover" style="--c1:${g[0]};--c2:${g[1]}"><span>${esc(p.t)}</span></div>`};
+const cardHTML=p=>`<div class="card">${p.i?`<div class="shot${p.x?' pdf':''}"><img loading="lazy" src="${A}${p.i[0]}.jpg" alt="${esc(p.t)} screenshot">${p.i.length>1?`<div class="sd">${p.i.map((x,k)=>`<button class="${k?'':'on'}" data-src="${A}${x}.jpg" aria-label="Screenshot ${k+1}">${k+1}</button>`).join('')}</div>`:''}</div>`:cover(p)}<div class="body"><div class="k">${esc(p.c)}</div><h3>${esc(p.t)}</h3><div class="when">${esc(p.w)}</div><p>${esc(p.d)}</p>${p.b?`<ul>${p.b.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}${chips(p.s)}${visit(p)}</div></div>`;
+const renderP=c=>{const Lp=P.filter(p=>c==="All"||p.c===c).sort((a,b)=>((b.i?2:0)+(b.f?1:0))-((a.i?2:0)+(a.f?1:0)));
+  const withImg=Lp.filter(p=>p.i),noImg=Lp.filter(p=>!p.i);
+  const top=withImg.length?withImg:noImg, rest=withImg.length?noImg:[];
+  pg.innerHTML=top.map(cardHTML).join('');mg.innerHTML=rest.map(cardHTML).join('');
+  mg.hidden=true;mbtn.setAttribute('aria-expanded','false');mbtn.style.display=rest.length?'':'none';mbtn.textContent=`Show ${rest.length} more project${rest.length==1?'':'s'}`;
+  document.querySelectorAll('#projects .sd button,#moreprojects .sd button').forEach(b=>b.onclick=()=>{const sh=b.closest('.shot');sh.querySelector('img').src=b.dataset.src;sh.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b))});
+  pc.textContent=c==='All'?`${P.length} projects, ${withImg.length} with screenshots`:`${Lp.length} ${c} project${Lp.length==1?'':'s'}`;
   [...pf.children].forEach(b=>b.classList.toggle('on',b.dataset.c===c))};
 pf.innerHTML=cats.map(c=>`<button data-c="${esc(c)}">${esc(c)}</button>`).join('');
 [...pf.children].forEach(b=>b.onclick=()=>renderP(b.dataset.c));
+mbtn.onclick=()=>{mg.hidden=!mg.hidden;mbtn.setAttribute('aria-expanded',!mg.hidden);const n=mg.children.length;mbtn.textContent=mg.hidden?`Show ${n} more project${n==1?'':'s'}`:'Hide them'};
 renderP("All");
 
 /* socials */
