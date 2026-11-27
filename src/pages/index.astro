@@ -110,10 +110,11 @@ const tile = (f) => { const I = BI[f]; if (!I) return null; const dark = ['x','t
         <button role="tab" data-k="a"><span class="ci-ic cl"><svg viewBox="0 0 24 24"><path d={BI.claude.p}/></svg></span>Anthropic</button>
         <button role="tab" data-k="t"><span class="ci-ic at"><svg viewBox="0 0 24 24"><path d={BI.atlassian.p}/></svg></span>Atlassian</button>
       </div>
-      <ul class="cl" data-k="g">{C.filter(c => /^Google/.test(c[1])).map(c => <li>{nv(c[0])}<span class="label">{c[2]}</span></li>)}</ul>
+      <ul class="cl" data-k="g">{C.filter(c => /^Google/.test(c[1])).slice(0, 6).map(c => <li>{nv(c[0])}<span class="label">{c[2]}</span></li>)}</ul>
       <ul class="cl" data-k="p" hidden>{C.filter(c => c[1] === 'PMI').map(c => <li>{c[0]}<span class="label">{c[2]}</span></li>)}<li>PMP <em>in progress</em></li></ul>
       <ul class="cl" data-k="a" hidden>{C.filter(c => c[1] === 'Anthropic').map(c => <li>{c[0]}<span class="label">{c[2]}</span></li>)}</ul>
       <ul class="cl" data-k="t" hidden>{C.filter(c => c[1] === 'Atlassian').map(c => <li>{c[0]}<span class="label">{c[2]}</span></li>)}</ul>
+      <a class="vall mono" href="#credentials">View all {total} →</a>
     </div>
   </div>
   <div class="ar rv">
@@ -260,6 +261,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:78px;z-index:50;bac
 #work{padding-top:90px}
 .cl{list-style:none;display:grid;gap:0;margin-top:10px;max-width:460px}
 .cl li{justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--line)}.cl li .label{font-size:11.5px;white-space:nowrap}
+.cl[hidden]{display:none!important}.vall{display:inline-block;margin-top:12px;font-size:12px;text-transform:uppercase;color:var(--or)}
 .ctabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.ctabs button{display:flex;align-items:center;gap:7px;border:0;background:var(--soft);border-radius:9px;padding:5px 11px 5px 5px;font-size:12.5px;color:var(--sub);cursor:pointer}.ctabs button .ci-ic{width:22px;height:22px;border-radius:6px}.ctabs button.on{color:var(--ink);box-shadow:inset 0 0 0 1px var(--or)}
 .cl li{display:flex;align-items:center;gap:10px;font-size:13.5px}.cl em{font-style:normal;color:var(--or);margin-left:4px;font-size:12px}
 .ci-ic{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;flex:none;background:#fff}
