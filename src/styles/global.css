@@ -11,7 +11,9 @@ TYPE    SF Pro (system) with Inter fallback, Apple's scale 96 / 56 / 32 / 21 / 1
   --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Inter,system-ui,sans-serif;
   --disp:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Inter,system-ui,sans-serif;
   --ease:cubic-bezier(.28,.11,.32,1);
-  --grad:linear-gradient(90deg,#5ac8fa 0%,#7d7aff 30%,#d66efd 55%,#ff6b8b 78%,#ffb340 100%);
+  --cond:"Barlow Condensed","SF Pro Display",Inter,sans-serif;--mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;--sig:"Mrs Saint Delafield",cursive;
+  --chrome:linear-gradient(180deg,#ffffff 0%,#d9d9de 45%,#8e8e93 100%);
+  --grad:linear-gradient(90deg,#8e8e93 0%,#ffffff 25%,#a1a1a6 50%,#ffffff 75%,#8e8e93 100%);
 }
 *{box-sizing:border-box;margin:0;padding:0;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:44px}
@@ -28,8 +30,9 @@ section{background:#000;color:var(--text);padding:clamp(90px,11vw,150px) 0}
 .head .lede{flex:1 1 600px;max-width:720px;margin-top:4px}
 .eyebrow{display:none}
 h1,h2,h3,h4{font-family:var(--disp);font-weight:600;text-wrap:balance}
-h2{font-size:clamp(32px,4.4vw,56px);line-height:1.08;letter-spacing:-.005em;font-weight:600}
-.lede{font-size:clamp(19px,1.9vw,21px);line-height:1.38;color:#86868b;margin-top:14px;letter-spacing:.011em;font-weight:600}
+h2{font-family:var(--cond);text-transform:uppercase;font-size:clamp(40px,5.6vw,76px);line-height:.98;letter-spacing:.005em;font-weight:500;background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:clamp(17px,1.7vw,19px);line-height:1.5;color:#a1a1a6;margin-top:10px;letter-spacing:.011em;font-weight:500}
+.tag{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#a1a1a6}
 .lede b{color:#f5f5f7}
 .lede b{color:var(--text);font-weight:600}
 .link{color:var(--link);display:inline-flex;align-items:center}
@@ -48,9 +51,11 @@ h2{font-size:clamp(32px,4.4vw,56px);line-height:1.08;letter-spacing:-.005em;font
 .chip.p{padding-left:10px}
 
 /* motion */
+.blurin{filter:blur(18px);opacity:.35;transition:filter 1.6s var(--ease),opacity 1.6s var(--ease)}
+.blurin.in{filter:none;opacity:1}
 .rv{opacity:0;transform:translateY(40px) scale(.985);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
 .rv.in{opacity:1;transform:none}
 .zoom{transform:scale(.92);opacity:0;transition:transform 1.2s var(--ease),opacity 1.2s var(--ease)}
 .zoom.in{transform:none;opacity:1}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv,.zoom{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv,.zoom,.blurin{opacity:1;transform:none;filter:none}}
 @media (prefers-reduced-transparency:reduce){nav{background:#161617!important;backdrop-filter:none!important}}
