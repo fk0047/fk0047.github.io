@@ -95,7 +95,7 @@ const P=[
  {c:"Social & Messaging",t:"Email marketing & campaign automation",w:"2020 – Present",f:1,g:["#FA0F00","#ff7a1a"],
   d:"Email and lifecycle campaigns for retailers, brands and SaaS clients, from list segmentation and templates to sending, tracking and reporting, with AI writing the copy.",
   b:["Adobe Marketo Engage and Adobe Campaign programs for enterprise brands","Adobe Journey Optimizer (AJO) sending on Do It Best's behalf, with CJA open and click reporting","Mailgun and Mailchimp for transactional and marketing email at scale","HubSpot and Salesforce CRM sync, plus segment-based AI email and SMS campaigns in Dentaloo","Opt-out and suppression handling, deliverability and tracking pixels","AI-written personalized offers, measured on open rates"],
-  s:["Adobe Marketo Engage","Adobe Campaign","Adobe Journey Optimizer","Mailgun","Mailchimp","HubSpot","Salesforce","Twilio"]},
+  s:["Adobe Marketo Engage","Adobe Campaign","Adobe Journey Optimizer","Resend","Mailgun","Mailchimp","HubSpot","Salesforce","Twilio"]},
  {c:"Social & Messaging",t:"Saturn Text",w:"Feb 2022 – Mar 2022 · EZ-AD TV",d:"Text blast platform for business SMS campaigns, with prepaid credit and auto-refill billing.",s:["Twilio","Telnyx","SMS"]},
  // Mobile
  {c:"Digital Signage",t:"EZ-AD TV Android & iOS apps",w:"Sep 2021 – Present · EZ-AD TV",f:1,g:["#00e5ff","#ff7a1a"],i:["ezad-ios","ezad-play"],u:[["App Store","https://apps.apple.com/us/app/ez-ad-mobile-app/id825347019"],["Google Play","https://play.google.com/store/apps/details?id=com.flexsin.ezadtv&hl=en_US"]],
@@ -162,24 +162,24 @@ const P=[
 
 const S=[
  ["Local & open-weight LLMs",["Ollama","LM Studio","Meta Llama","Qwen","DeepSeek","Kimi","Mistral","Gemma (open models)","GPT-OSS","Apple silicon (M5 Max) inference","Docker on NAS","RunPod GPUs"]],
- ["AI voice, media & automation",["ElevenLabs","Riverside","n8n","Groq","GitHub Copilot","Chatbots & AI assistants","AI voice agents","Slack AI agents"]],
+ ["AI voice, media & automation",["ElevenLabs","Riverside","n8n","Inngest","Groq","Lovable","GitHub Copilot","Chatbots & AI assistants","AI voice agents","Slack AI agents"]],
  ["Google DeepMind & Google",["Google DeepMind","Gemini","Gemini API","Google Vertex AI","Google AI Studio","Gemma (open models)","Google Cloud Platform","Firebase","Google Merchant Center","Google Ads","Google Analytics","Looker Studio","Google Business Profile","Google Workspace","Google Cloud Skills Boost (certified)"]],
  ["AI & LLMs",["Claude","Claude Code","OpenAI GPT","ChatGPT","Google Gemini","Google Vertex AI","xAI Grok","DeepSeek","Qwen","Kimi","Open-weight models run locally","RunPod GPUs","LLM agents","Agentic workflows","Multi-model routing","Prompt engineering","Vision & image captioning","FastAPI / Flask AI services","AI governance"]],
  ["Web3, Crypto & Wallets",["Ethereum","Polygon","Binance Smart Chain","Solidity smart contracts","ERC-20 tokens","ERC-721 NFTs","MetaMask","Trust Wallet","WalletConnect","Custodial wallet infrastructure","Mobile wallets","Crypto exchanges","Spot trading","MoonPay on-ramp","KYC / AML APIs","Ethereum JSON-RPC"]],
  ["Social & Messaging APIs",["Meta Graph API","Instagram publishing","Facebook apps & App Review","Threads","TikTok","YouTube","X / Twitter","LinkedIn","Pinterest","Bluesky","Mastodon","Telegram","Discord","Google Business Profile","WordPress publishing","Google Ads","Twilio","Telnyx","Mailchimp","Mailgun","Adobe Marketo Engage","Adobe Journey Optimizer","HubSpot","Salesforce"]],
- ["Cloud & Infrastructure",["AWS","Microsoft Azure","Google Cloud Platform","Firebase","Cloudflare","RunPod","Docker","Kubernetes","On-prem / data center","Redis","Elasticsearch","MySQL","PostgreSQL","Monitoring & observability"]],
- ["Version Control & DevOps",["GitHub","GitLab","Bitbucket","CI/CD pipelines","Branch & merge workflows","Code review","Postman","Jira","Confluence","ClickUp","Monday.com","Trello","Asana","Notion","MS Project"]],
+ ["Cloud & Infrastructure",["AWS","Microsoft Azure","Google Cloud Platform","Firebase","Cloudflare","RunPod","Docker","Kubernetes","On-prem / data center","Vercel","Monitoring & observability"]],
+ ["Version Control & DevOps",["GitHub","GitLab","Bitbucket","CI/CD pipelines","Sentry","Branch & merge workflows","Code review","Postman","Jira","Confluence","ClickUp","Monday.com","Trello","Asana","Notion","MS Project"]],
  ["Backend languages & frameworks",["PHP","Laravel","Node.js","Express","TypeScript","JavaScript","Python","FastAPI","Flask","Java","Spring Boot","C#","ASP.NET / .NET","Go","Phoenix (Elixir)","REST","GraphQL","WebSockets","Microservices"]],
  ["Front-end languages",["HTML5","CSS3","JavaScript (ES6+)","TypeScript","Tailwind CSS","Bootstrap","SCSS / Sass","Liquid (Shopify)"]],
  ["JavaScript frameworks & libraries",["React.js","Next.js","Vue.js","Nuxt.js","Svelte","SvelteKit","SolidJS","Angular","Vanilla JS","jQuery","Alpine.js","React Native","Ionic"]],
- ["Databases & data stores",["PostgreSQL","MySQL","SQLite","Supabase","Firebase / Firestore","Microsoft SQL Server","Redis","Elasticsearch","SQL"]],
+ ["Databases & data stores",["PostgreSQL","MySQL","SQLite","Supabase","Pinecone (vector database)","Firebase / Firestore","Microsoft SQL Server","Redis","Elasticsearch","SQL"]],
  ["Mobile development",["Android","Kotlin","Java (Android)","iOS","Swift","Flutter","React Native","Ionic",".NET / C#","Android Studio","Xcode","App Store & Play Store releases"]],
  ["CMS, eCommerce & website platforms",["WordPress (custom PHP themes)","WooCommerce","Elementor","Shopify","Shopify Liquid","Headless storefronts","Magento","Amazon Seller Central","Walmart Marketplace","Google Merchant Center","Custom-built storefronts"]],
  ["Payments",["Stripe & Stripe Connect","PayPal","Authorize.Net","Helcim","MoonPay","QuickBooks Online","Subscriptions & recurring billing","Refunds & reconciliation","EasyPost (UPS, USPS, FedEx)","POS systems"]],
- ["Security, Identity & IT",["SSO (OIDC, SAML, AD FS)","OAuth 2.0 / JWT","RBAC","Microsoft Entra ID","Microsoft 365","SharePoint","Password vaults","VPN-only access","IT support & admin","Network security","SOC 2","PCI DSS","HIPAA","GDPR / CCPA"]],
+ ["Security, Identity & IT",["Supabase Auth","Clerk","SSO (OIDC, SAML, AD FS)","OAuth 2.0 / JWT","RBAC","Microsoft Entra ID","Microsoft 365","SharePoint","Password vaults","VPN-only access","IT support & admin","Network security","SOC 2","PCI DSS","HIPAA","GDPR / CCPA"]],
  ["Product & Delivery",["Product strategy & roadmaps","Backlog & sprint planning","BRD / SRS / SDS","User stories & acceptance criteria","Wireframes (Adobe XD)","UAT & QA workflows","Stakeholder management","Vendor management","Risk management","Six Sigma","Scrum / Kanban"]],
  ["Email & marketing automation",["Adobe Marketo Engage","Adobe Campaign","Adobe Journey Optimizer","Adobe Customer Journey Analytics","Mailgun","Mailchimp","HubSpot","Salesforce","Email templates & HTML email","Segmentation & audiences","Drip & lifecycle campaigns","Deliverability & suppression lists","Twilio","Telnyx","SMS campaigns"]],
- ["Data & Marketing",["Power BI","Tableau","Google Analytics","Looker Studio","SEO / SEM","Email marketing","Social media marketing","Inbound marketing","Digital customer engagement"]]
+ ["Data & Marketing",["PostHog","Power BI","Tableau","Google Analytics","Looker Studio","SEO / SEM","Email marketing","Social media marketing","Inbound marketing","Digital customer engagement"]]
 ];
 
 const CO="https://www.coursera.org/account/accomplishments/",GB="https://www.cloudskillsboost.google/public_profiles/0ff76b2f-6d51-40ff-9aa5-6171cb21f7d4/badges/",CR="https://www.credly.com/badges/",AC="https://www.youracclaim.com/badges/",HS="https://hubspot-academy.s3.amazonaws.com/prod/tracks/user-certificates/",AT="https://university.atlassian.com/student/award/",RK="http://81cd1176253f3f59d435-ac22991740ab4ff17e21daf2ed577041.r77.cf1.rackcdn.com/Certificate/";
