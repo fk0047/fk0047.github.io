@@ -96,7 +96,6 @@ const tile = (f) => { const I = BI[f]; if (!I) return null; const dark = ['x','t
 <section class="clients wrap rv" id="brands">
   <div class="sh"><h3>Clients and brands</h3><p class="label">Retail, restaurant, government and enterprise brands I've delivered for.</p></div>
   <div class="logos">{clients.map(([f, n, e, t]) => <img class={t ? 't' : ''} src={`/assets/clients/${f}.${e}`} alt={n} title={n} loading="lazy">)}</div>
-  <div class="socials">{SO.map(([f, n]) => { const T = tile(f); return T && <div class="so"><span class={T.cls} style={T.st}><svg viewBox="0 0 24 24" aria-hidden="true">{T.ko && <rect x={T.ko[1]} y={T.ko[2]} width={T.ko[3]} height={T.ko[4]} fill="#fff"/>}<path d={T.p}/></svg></span>{n}</div>; })}</div>
 </section>
 
 <section class="about wrap" id="about">
