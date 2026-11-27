@@ -17,6 +17,8 @@ const restCerts = C.filter(c => !c[6]).concat(C.filter(c => c[6]).slice(6));
 const view = c => c[4] ? `/certificates/${c[4]}.pdf` : '';
 const extraName = x => x.replace(/ \(.*\)$/, '');
 const extraIss = x => (x.match(/\((.*)\)$/) || ['', ''])[1];
+const PL = {'EZAI / EZ-AD Enterprise':'ezai','EZ-Medical AI':'ezmedical','Dentaloo':'dentaloo','EZ-AD TV':'ezadapp','True Value Rewards':'tvr','True Value MTS+ app':'mts','EZ-AD Digital Commerce':'ezadapp','EZ-AD TV Android & iOS apps':'ezadapp','Issa Dental Group':'issa','SOCH Psychological Clinics':'soch'};
+const nv = t => t.replace(/\s*\((v|V)\d\)|\s+V\d$/g, '');
 const LOGO = {'EZ-AD TV':'ezad','Working Ladies In Progress':'wlip','Vortex International':'vortex','Tech Switch':'techswitch','Atrix Digital Solutions':'atrix'};
 const PH = {'Rolan Reichel':'rolan','Lawrence Mansour':'lawrence','Kevin Hercog':'kevin','Haris Ahmed':'haris','Faryal Anjum':'faryal','Ahsan Hussain':'ahsan','Arslan Qamar':'arslan','Moeid Saleem Khan':'moeid','Belbron Emanoel':'belbron'};
 const ini = n => n.replace(/\(.*?\)/g,'').split(/[\s/]+/).filter(Boolean).slice(0,2).map(w => w[0]).join('').toUpperCase();
@@ -62,7 +64,7 @@ const tile = (f) => { const I = BI[f]; if (!I) return null; const dark = ['x','t
     <section class="proj rv">
       <div class="phead">
         <div class="pl">
-          <span class="pic" style={`background:linear-gradient(135deg,${p.g ? p.g[0] : '#333'},${p.g ? p.g[1] : '#111'})`}>{p.t.replace(/[^A-Za-z]/g,'')[0]}</span>
+          {PL[p.t] ? <img class="pic" src={`/assets/plogos/${PL[p.t]}.jpg`} alt=""> : <span class="pic" style={`background:linear-gradient(135deg,${p.g ? p.g[0] : '#333'},${p.g ? p.g[1] : '#111'})`}>{p.t.replace(/[^A-Za-z]/g,'')[0]}</span>}
           <div><h2>{p.t}</h2></div>
         </div>
         <p class="pd">{p.d}{p.u && p.u[0] && <> <a class="ul" href={p.u[0][1]} target="_blank" rel="noopener">{p.u[0][0]} ↗</a></>}</p>
@@ -74,7 +76,7 @@ const tile = (f) => { const I = BI[f]; if (!I) return null; const dark = ['x','t
   </div>
 
   <section id="archives" class="arch rv">
-    <div class="sh"><h3>Archives</h3><p class="label">{archive.length + older.length} more products, portfolio pieces and earlier work.</p></div>
+    <div class="sh"><h3>Other projects</h3><p class="label">{archive.length + older.length} more products, portfolio pieces and earlier work.</p></div>
     <div class="agrid">
       {archive.map(p => (
         <details class="ac">
@@ -101,9 +103,15 @@ const tile = (f) => { const I = BI[f]; if (!I) return null; const dark = ['x','t
   <div class="al rv">
     <img class="me" src="/assets/fahad.jpg" alt="Fahad Khan">
     <div class="kv"><p class="label">Education</p><p class="ed"><img src="/assets/comsats.png" alt="">BSc Software Engineering<br><span>COMSATS University Islamabad · 2014 – 2018</span></p></div>
-    <div class="kv"><p class="label">Certifications</p><p>{total} certifications, led by Google</p></div>
-    {googleFeat.slice(0, 5).map(c => <div class="kv"><p class="label">{c[1]}</p><p>{c[0]}</p></div>)}
-    <div class="kv"><p class="label">Next</p><p>PMP (in progress)</p></div>
+    <div class="kv"><p class="label">Certifications · {total} in total</p>
+      <ul class="cl">
+        {googleFeat.slice(0, 5).map(c => <li><span class="ci-ic g"><svg viewBox="0 0 24 24"><path d={BI.google.p}/></svg></span>{nv(c[0])}</li>)}
+        {C.filter(c => c[1] === 'PMI').map(c => <li><span class="ci-ic pmi">PMI</span>{c[0]}</li>)}
+        {C.filter(c => c[1] === 'Anthropic').map(c => <li><span class="ci-ic cl"><svg viewBox="0 0 24 24"><path d={BI.claude.p}/></svg></span>{c[0]}</li>)}
+        {C.filter(c => c[1] === 'Atlassian').slice(0, 1).map(c => <li><span class="ci-ic at"><svg viewBox="0 0 24 24"><path d={BI.atlassian.p}/></svg></span>{c[0]}</li>)}
+        <li><span class="ci-ic pmi">PMI</span>PMP <em>in progress</em></li>
+      </ul>
+    </div>
   </div>
   <div class="ar rv">
     <p class="label">About me</p>
@@ -123,7 +131,7 @@ const tile = (f) => { const I = BI[f]; if (!I) return null; const dark = ['x','t
           {o.r.slice().reverse().map(r => <div class="role"><p><b>{r.t}</b>{r.p && <span class="pr mono">Promoted</span>}</p><p class="label">{r.w}</p><ul>{(r.b || []).map(x => <li>{x}</li>)}</ul></div>)}
         </details>
       ))}
-      <details class="older"><summary class="mono">Earlier roles</summary>
+      <details class="older"><summary class="mono">View all roles</summary>
         {OLD.map(o => (
           <details class="org">
             <summary><span class="ol">{LOGO[o.n] ? <img src={`/assets/orgs/${LOGO[o.n]}.jpg`} alt=""> : <i>{ini(o.n)}</i>}</span><span><b>{o.n}</b> <em>· {o.r[0].w}</em><br><small>{o.r[0].t}</small></span></summary>
@@ -152,15 +160,15 @@ const tile = (f) => { const I = BI[f]; if (!I) return null; const dark = ['x','t
     {googleFeat.map((c, i) => (
       <div class="cc rv" style={`--d:${(i % 3) * 0.06}s`}>
         {c[4] && <img loading="lazy" src={`/certificates/thumbs/${c[4]}.jpg`} alt={`${c[0]} certificate`}>}
-        <p><b>{c[0]}</b><br><span class="label">Google · {c[2]}</span></p>
+        <p><b>{nv(c[0])}</b><br><span class="label">Google · {c[2]}</span></p>
         <p class="go mono">{c[3] && <a href={c[3]} target="_blank" rel="noopener">Verify ↗</a>}{view(c) && <a href={view(c)} target="_blank">View ↗</a>}</p>
       </div>
     ))}
   </div>
-  <div class="strip rv">{CB.map(b => <a class="bdg" href="https://www.credly.com/users/fk0047" target="_blank" rel="noopener"><img loading="lazy" src={`${CI}${b[3]}`} alt=""><span>{b[0]}</span></a>)}</div>
-  <details class="allc rv"><summary class="mono">All {total} certifications</summary>
+  <div class="strip rv">{CB.map(b => <a class="bdg" href="https://www.credly.com/users/fk0047" target="_blank" rel="noopener"><img loading="lazy" src={`${CI}${b[3]}`} alt=""><span>{nv(b[0])}</span></a>)}</div>
+  <details class="allc rv"><summary class="mono">View all {total} certifications</summary>
     <div class="list">
-      {restCerts.map(c => <div class="ci"><b>{c[0]}</b><span class="label">{c[1]} · {c[2]}</span>{(c[3] || view(c)) && <span class="go mono">{c[3] && <a href={c[3]} target="_blank" rel="noopener">Verify ↗</a>}{view(c) && <a href={view(c)} target="_blank">View ↗</a>}</span>}</div>)}
+      {restCerts.map(c => <div class="ci"><b>{nv(c[0])}</b><span class="label">{c[1]} · {c[2]}</span>{(c[3] || view(c)) && <span class="go mono">{c[3] && <a href={c[3]} target="_blank" rel="noopener">Verify ↗</a>}{view(c) && <a href={view(c)} target="_blank">View ↗</a>}</span>}</div>)}
       {X.map(x => <div class="ci"><b>{extraName(x)}</b><span class="label">{extraIss(x)}</span></div>)}
     </div>
   </details>
@@ -247,6 +255,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:78px;z-index:50;bac
 .feed .shot img{max-width:none;aspect-ratio:1062/486;object-fit:cover;object-position:top}
 @media(max-width:860px){.feed{grid-template-columns:1fr;gap:44px}}
 #work{padding-top:90px}
+.cl{list-style:none;display:grid;gap:8px;margin-top:6px}
+.cl li{display:flex;align-items:center;gap:10px;font-size:13.5px}.cl em{font-style:normal;color:var(--or);margin-left:4px;font-size:12px}
+.ci-ic{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;flex:none;background:#fff}
+.ci-ic svg{width:15px;height:15px}.ci-ic.g svg{fill:#4285F4}.ci-ic.cl{background:#D97757}.ci-ic.cl svg{fill:#fff}.ci-ic.at{background:#0052CC}.ci-ic.at svg{fill:#fff}
+.ci-ic.pmi{background:#F26B21;color:#fff;font-size:8.5px;font-weight:800;letter-spacing:.02em}
+img.pic{object-fit:cover;background:#fff}
 /* project feed */
 
 .proj{padding:60px 0 40px}
