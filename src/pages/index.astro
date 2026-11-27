@@ -105,15 +105,15 @@ const tile = (f) => { const I = BI[f]; if (!I) return null; const dark = ['x','t
     <div class="kv"><p class="label">Education</p><p class="ed"><img src="/assets/comsats.png" alt="">BSc Software Engineering<br><span>COMSATS University Islamabad · 2014 – 2018</span></p></div>
     <div class="kv"><p class="label">Certifications · {total} in total</p>
       <div class="ctabs" id="ctabs" role="tablist">
-        <button role="tab" class="on" data-k="g"><span class="ci-ic g"><svg viewBox="0 0 24 24"><path d={BI.google.p}/></svg></span>Google</button>
-        <button role="tab" data-k="p"><span class="ci-ic pmi">PMI</span>PMI</button>
+        <button role="tab" class="on" data-k="g"><span class="ci-ic g"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09C3.26 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.27 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.98-3.09z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z"/></svg></span>Google</button>
+        <button role="tab" data-k="p"><span class="ci-ic pm"><img src="/assets/pmi.jpg" alt="" /></span>PMI</button>
         <button role="tab" data-k="a"><span class="ci-ic cl"><svg viewBox="0 0 24 24"><path d={BI.claude.p}/></svg></span>Anthropic</button>
         <button role="tab" data-k="t"><span class="ci-ic at"><svg viewBox="0 0 24 24"><path d={BI.atlassian.p}/></svg></span>Atlassian</button>
       </div>
-      <ul class="cl" data-k="g">{C.filter(c => /^Google/.test(c[1])).slice(0, 6).map(c => <li>{nv(c[0])}<span class="label">{c[2]}</span></li>)}</ul>
-      <ul class="cl" data-k="p" hidden>{C.filter(c => c[1] === 'PMI').map(c => <li>{c[0]}<span class="label">{c[2]}</span></li>)}<li>PMP <em>in progress</em></li></ul>
-      <ul class="cl" data-k="a" hidden>{C.filter(c => c[1] === 'Anthropic').map(c => <li>{c[0]}<span class="label">{c[2]}</span></li>)}</ul>
-      <ul class="cl" data-k="t" hidden>{C.filter(c => c[1] === 'Atlassian').map(c => <li>{c[0]}<span class="label">{c[2]}</span></li>)}</ul>
+      <ul class="cl" data-k="g">{C.filter(c => /^Google/.test(c[1])).slice(0, 6).map(c => <li><span class="cn"><span class="ci-ic g"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09C3.26 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.27 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.98-3.09z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z"/></svg></span>{nv(c[0])}</span><span class="label">{c[2]}</span></li>)}</ul>
+      <ul class="cl" data-k="p" hidden>{C.filter(c => c[1] === 'PMI').map(c => <li><span class="cn"><span class="ci-ic pm"><img src="/assets/pmi.jpg" alt="" /></span>{c[0]}</span><span class="label">{c[2]}</span></li>)}<li><span class="cn"><span class="ci-ic pm"><img src="/assets/pmi.jpg" alt="" /></span>PMP</span><em>in progress</em></li></ul>
+      <ul class="cl" data-k="a" hidden>{C.filter(c => c[1] === 'Anthropic').map(c => <li><span class="cn"><span class="ci-ic cl"><svg viewBox="0 0 24 24"><path d={BI.claude.p}/></svg></span>{c[0]}</span><span class="label">{c[2]}</span></li>)}</ul>
+      <ul class="cl" data-k="t" hidden>{C.filter(c => c[1] === 'Atlassian').map(c => <li><span class="cn"><span class="ci-ic at"><svg viewBox="0 0 24 24"><path d={BI.atlassian.p}/></svg></span>{c[0]}</span><span class="label">{c[2]}</span></li>)}</ul>
       <a class="vall mono" href="#credentials">View all {total} →</a>
     </div>
   </div>
@@ -266,6 +266,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:78px;z-index:50;bac
 .cl li{display:flex;align-items:center;gap:10px;font-size:13.5px}.cl em{font-style:normal;color:var(--or);margin-left:4px;font-size:12px}
 .ci-ic{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;flex:none;background:#fff}
 .ci-ic svg{width:15px;height:15px}.ci-ic.g svg{fill:#4285F4}.ci-ic.cl{background:#D97757}.ci-ic.cl svg{fill:#fff}.ci-ic.at{background:#0052CC}.ci-ic.at svg{fill:#fff}
+.ci-ic.pm{overflow:hidden;padding:0}.ci-ic.pm img{width:100%;height:100%;border-radius:inherit}.ci-ic.g svg{width:15px;height:15px}.cn{display:flex;align-items:center;gap:10px}.cl .ci-ic{width:20px;height:20px;border-radius:5px}.cl .ci-ic svg{width:12px;height:12px}
 .ci-ic.pmi{background:#F26B21;color:#fff;font-size:8.5px;font-weight:800;letter-spacing:.02em}
 img.pic{object-fit:cover;background:#fff}
 .otherp>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding-bottom:6px}
