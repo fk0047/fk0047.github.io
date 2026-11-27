@@ -621,7 +621,7 @@ mark();restart();
 /* project grid */
 const cats=["All",...new Set(P.map(p=>p.c))];
 const pf=document.getElementById('pfilters'),pg=document.getElementById('projects'),pc=document.getElementById('pcount');
-const renderP=c=>{const L=P.filter(p=>c==="All"||p.c===c);
+const renderP=c=>{const L=P.filter(p=>c==="All"||p.c===c);if(c!=="All")L.sort((a,b)=>((b.f?2:0)+(b.i?1:0))-((a.f?2:0)+(a.i?1:0)));
   pg.innerHTML=L.map(p=>`<div class="card">${p.i?`<div class="shot${p.x?' pdf':''}"><img loading="lazy" src="${A}${p.i[0]}.jpg" alt="${esc(p.t)} screenshot">${p.i.length>1?`<div class="sd">${p.i.map((x,k)=>`<button class="${k?'':'on'}" data-src="${A}${x}.jpg" aria-label="Screenshot ${k+1}">${k+1}</button>`).join('')}</div>`:''}</div>`:''}<div class="kind">${esc(p.c)}</div><h3>${esc(p.t)}</h3><div class="when">${esc(p.w)}</div><p>${esc(p.d)}</p>${p.b?`<ul>${p.b.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}<div class="stack">${p.s.map(x=>`<span>${esc(x)}</span>`).join('')}</div>${visit(p)}</div>`).join('');
   pg.querySelectorAll('.sd button').forEach(b=>b.onclick=()=>{const sh=b.closest('.shot');sh.querySelector('img').src=b.dataset.src;sh.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b))});
   pc.textContent=`Showing ${L.length} of ${P.length} projects`;
