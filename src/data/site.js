@@ -45,7 +45,7 @@ const P=[
  {c:"SaaS & Platforms",t:"Secure credential sharing",w:"2026 · EZ-AD TV",
   d:"An internal secrets vault plus automated one-time links for handing credentials to external users across all client platforms, replacing passwords sent over email.",s:["Vaultwarden","Security","Automation"]},
  // Digital signage
- {c:"Digital Signage",t:"EZ-AD TV digital signage",w:"May 2021 – Present · EZ-AD TV",f:1,g:["#00e5ff","#1f8a57"],i:["ezadtv-1","ezadtv-2"],u:[["ezadtv.com","https://ezadtv.com/"]],
+ {c:"Digital Signage",t:"EZ-AD TV",ny:1,w:"May 2021 – Present · EZ-AD TV",f:1,g:["#00e5ff","#1f8a57"],i:["ezadtv-1","ezadtv-2"],u:[["ezadtv.com","https://ezadtv.com/"]],
   d:"EZ-AD TV's core product: a plug-in digital signage player plus cloud software that lets any business run ads, menus and promotions on its screens. Over 50,000 units sold in 27 countries.",
   b:["Signage player and cloud dashboard for screens, groups and playlists","Templates, image and video ads, scheduling and remote updates","Used by brands like Disney, Verizon, Spectrum, Walmart, True Value, ACE and 3M, plus government agencies","Companion iOS and Android apps for managing screens from a phone"],
   s:["Digital signage","Cloud CMS","Android player","Playlists"]},

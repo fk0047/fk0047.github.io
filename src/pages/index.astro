@@ -8,7 +8,7 @@ const chip = (n) => BR[n] || null;
 const total = C.length + X.length + 1;
 const yr = w => (w.match(/\d{4}/) || ['Portfolio'])[0];
 const status = w => /Present/.test(w) ? 'Ongoing' : 'Shipped';
-const order = ['EZAI / EZ-AD Enterprise','EZ-Medical AI','Dentaloo','EZ-AD TV digital signage','True Value Rewards','True Value MTS+ app','EZ-AD Digital Commerce','EZ-AD TV Android & iOS apps','Issa Dental Group','SOCH Psychological Clinics'];
+const order = ['EZAI / EZ-AD Enterprise','EZ-Medical AI','Dentaloo','EZ-AD TV','True Value Rewards','True Value MTS+ app','EZ-AD Digital Commerce','EZ-AD TV Android & iOS apps','Issa Dental Group','SOCH Psychological Clinics'];
 const feed = order.map(t => P.find(p => p.t === t)).filter(Boolean);
 const archive = P.filter(p => !feed.includes(p) && p.i);
 const older = P.filter(p => !feed.includes(p) && !p.i);
@@ -63,7 +63,7 @@ const tile = (f) => { const I = BI[f]; if (!I) return null; const dark = ['x','t
       <div class="phead">
         <div class="pl">
           <span class="pic" style={`background:linear-gradient(135deg,${p.g ? p.g[0] : '#333'},${p.g ? p.g[1] : '#111'})`}>{p.t.replace(/[^A-Za-z]/g,'')[0]}</span>
-          <div><h2>{p.t} <span>· {yr(p.w)}</span></h2><p class="tags"><span class="tg">{p.c}</span><span>{p.w.split(' · ')[1] || 'Product'} · {status(p.w)}</span></p></div>
+          <div><h2>{p.t}{!p.ny && <span> · {yr(p.w)}</span>}</h2><p class="tags"><span class="tg">{p.c}</span><span>{p.w.split(' · ')[1] || 'Product'} · {status(p.w)}</span></p></div>
         </div>
         <p class="pd">{p.d}{p.u && p.u[0] && <> <a class="ul" href={p.u[0][1]} target="_blank" rel="noopener">{p.u[0][0]} ↗</a></>}</p>
       </div>
