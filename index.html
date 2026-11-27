@@ -7,7 +7,13 @@
 <meta name="description" content="Fahad Khan - AI Product Manager, Product Owner, Technical Project Manager, Technical Business Analyst and Fractional CTO. 35+ products shipped across AI, SaaS, marketing tech, eCommerce, Web3 and crypto.">
 <meta property="og:title" content="Fahad Khan | AI Product Manager & Technical Project Manager">
 <meta property="og:description" content="35+ products shipped across AI, SaaS, marketing tech, eCommerce, Web3 and crypto.">
-<meta property="og:image" content="assets/fahad.jpg">
+<meta property="og:image" content="https://fk0047.github.io/assets/fahad.jpg">
+<meta property="og:url" content="https://fk0047.github.io/">
+<meta property="og:type" content="profile">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://fk0047.github.io/">
+<meta name="theme-color" content="#050706">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Fahad Khan","jobTitle":"AI Product Manager / Technical Project Manager","url":"https://fk0047.github.io/","email":"mailto:chronos0047@gmail.com","telephone":"+923414480088","address":{"@type":"PostalAddress","addressCountry":"PK"},"alumniOf":"COMSATS University Islamabad","sameAs":["https://www.linkedin.com/in/fk0047/","https://github.com/fk0047"]}</script>
 <link rel="icon" href="assets/fahad.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,7 +39,8 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .logo span{color:var(--accent)}
 .links{display:flex;gap:22px;font-size:14px;color:var(--muted)}
 .links a:hover{color:var(--accent2)}
-@media(max-width:900px){.links{display:none}}
+.menu{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:10px;width:44px;height:44px;font-size:20px;cursor:pointer}
+@media(max-width:900px){.menu{display:block}.links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:rgba(5,7,6,.97);border-bottom:1px solid var(--line)}.links.open{display:flex}.links a{padding:14px 24px;border-top:1px solid var(--line);font-size:16px}}
 
 .hero{padding:88px 0 64px;position:relative;overflow:hidden}
 .hero:before{content:"";position:absolute;inset:-220px -180px auto auto;width:680px;height:680px;background:radial-gradient(circle,rgba(31,138,87,.35),transparent 62%);pointer-events:none}
@@ -56,7 +63,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .btn.primary:hover{filter:brightness(1.08)}
 .btn:hover{border-color:var(--accent2);box-shadow:0 0 18px rgba(0,229,255,.18)}
 .btn.wa{background:#0f5132;border-color:#1f8a57}
-.avatar{width:250px;height:250px;border-radius:50%;object-fit:cover;border:3px solid var(--bg);box-shadow:0 0 0 3px var(--green2),0 0 0 6px var(--bg),0 0 0 8px var(--accent2),0 0 50px rgba(0,229,255,.35)}
+.avatar{width:210px;height:210px;border-radius:50%;object-fit:cover;border:3px solid var(--bg);box-shadow:0 0 0 3px var(--green2),0 0 0 6px var(--bg),0 0 0 8px var(--accent2),0 0 50px rgba(0,229,255,.35)}
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr}.avatar{width:140px;height:140px;order:-1}}
 
 .stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:56px}
@@ -136,6 +143,7 @@ h2{font-size:clamp(28px,4vw,42px);margin-bottom:14px;text-wrap:balance}
 .job .when{font-size:13px;color:var(--muted);white-space:nowrap}
 .job .meta{font-size:13px;color:var(--muted);margin:2px 0 10px}
 .job ul{list-style:none}
+.more{display:none}.more.open{display:block}
 .job li{position:relative;padding-left:16px;color:#c9d4cd;font-size:15px;margin-bottom:6px}
 .job li:before{content:"";position:absolute;left:0;top:10px;width:6px;height:2px;background:var(--accent)}
 
@@ -212,6 +220,7 @@ footer{padding:28px 0;text-align:center;font-size:13px;color:var(--muted);border
     <a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#experience">Experience</a>
     <a href="#skills">Skills</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a>
   </div>
+  <button class="menu" id="menu" aria-label="Open menu" aria-expanded="false">&#9776;</button>
 </div></nav>
 
 <header class="hero"><div class="wrap">
@@ -219,7 +228,7 @@ footer{padding:28px 0;text-align:center;font-size:13px;color:var(--muted);border
     <div>
       <div class="tag"><i></i>Open to remote roles worldwide</div>
       <p class="hi">Hi, I'm Fahad. I turn ideas into products.</p>
-      <h1><span class="role"><span id="role">AI Product Manager</span><span class="caret"></span></span></h1>
+      <h1 aria-label="AI Product Manager, Product Owner, Technical Project Manager, Technical Business Analyst and Fractional CTO"><span class="role" aria-hidden="true"><span id="role">AI Product Manager</span><span class="caret"></span></span></h1>
       <div class="roles">
         <span>AI Product Manager</span><span>Product Owner</span><span>Product Manager</span><span>Technical Project Manager</span><span>Technical Business Analyst</span><span>Business Analyst</span><span>Digital Project Manager</span><span>Scrum Master</span><span>Fractional CTO</span>
       </div>
@@ -325,6 +334,7 @@ footer{padding:28px 0;text-align:center;font-size:13px;color:var(--muted);border
     <div class="job"><div class="top"><h3>Product Manager <span class="co">· NFT Marketplace (NDA)</span></h3><span class="when">Aug 2021 – Nov 2021</span></div>
       <div class="meta">Los Angeles, CA · Remote</div>
       <ul><li>Launched a multi-chain NFT marketplace on Ethereum, Polygon and BSC, with royalty and auction smart contracts, minting flows, wallet connections and a creator dashboard.</li></ul></div>
+    <div class="more" id="olderJobs">
     <div class="job"><div class="top"><h3>Digital Project Manager <span class="co">· Vortex International</span></h3><span class="when">May 2020 – Dec 2020</span></div>
       <div class="meta">Islamabad · On-site</div>
       <ul><li>Ran digital campaigns for the Al Makkah City project end to end with a team of six, covering Facebook, Instagram, Google Ads, SEO and website work.</li></ul></div>
@@ -343,7 +353,9 @@ footer{padding:28px 0;text-align:center;font-size:13px;color:var(--muted);border
     <div class="job"><div class="top"><h3>Freelance Developer & Data Analyst <span class="co">· Upwork / Fiverr</span></h3><span class="when">May 2014 – Jul 2016</span></div>
       <div class="meta">Remote</div>
       <ul><li>Built mobile apps (Ionic, Android Studio), dashboards (Tableau, Power BI) and UI designs (Adobe XD).</li></ul></div>
+    </div>
   </div>
+  <button class="btn" id="tlbtn" aria-expanded="false" style="margin-left:28px">Show earlier roles (2014 – 2020)</button>
 </div></section>
 
 <section id="skills" class="tint"><div class="wrap">
@@ -415,7 +427,7 @@ footer{padding:28px 0;text-align:center;font-size:13px;color:var(--muted);border
   </form>
 </div></section>
 
-<footer>© <span id="yr"></span> Fahad Khan · Pakistan · Remote / Global</footer>
+<footer>© <span id="yr"></span> Fahad Khan · Pakistan · Remote / Global · <a href="https://www.linkedin.com/in/fk0047/" target="_blank" style="color:var(--accent2)">LinkedIn</a> · <a href="https://github.com/fk0047" target="_blank" style="color:var(--accent2)">GitHub</a> · <a href="#" style="color:var(--accent)">Back to top</a></footer>
 
 <script>
 {
@@ -686,6 +698,11 @@ document.getElementById('cform').addEventListener('submit',e=>{e.preventDefault(
   note.style.color="";note.textContent=via==='wa'?"Opening WhatsApp... If nothing opens, message +92 341 4480088 directly.":"Opening your email app... If nothing opens, email chronos0047@gmail.com directly.";
   window.location.href=url;});
 document.getElementById('yr').textContent=new Date().getFullYear();
+const mb=document.getElementById('menu'),lk=document.querySelector('.links');
+mb.onclick=()=>{const o=lk.classList.toggle('open');mb.setAttribute('aria-expanded',o)};
+lk.querySelectorAll('a').forEach(a=>a.onclick=()=>{lk.classList.remove('open');mb.setAttribute('aria-expanded',false)});
+const tb=document.getElementById('tlbtn'),oj=document.getElementById('olderJobs');
+tb.onclick=()=>{const o=oj.classList.toggle('open');tb.setAttribute('aria-expanded',o);tb.textContent=o?'Hide earlier roles':'Show earlier roles (2014 – 2020)'};
 }
 </script>
 </body>
