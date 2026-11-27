@@ -163,6 +163,13 @@ h2{font-size:clamp(28px,4vw,42px);margin-bottom:14px;text-wrap:balance}
 @media(max-width:820px){.skills{grid-template-columns:1fr}}
 .skill h3{font-size:16px;font-family:Inter;font-weight:600;margin-bottom:12px;color:var(--text)}
 .skill h3 em{font-style:normal;color:var(--accent)}
+.socials{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px}
+@media(max-width:1100px){.socials{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:640px){.socials{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.soc{flex-direction:column;text-align:center;justify-content:center}
+.soc{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--card);transition:.2s}
+.soc:hover{border-color:var(--accent2);transform:translateY(-2px)}
+.soc img{width:40px;height:40px;flex:none}
+.soc span{font-weight:600;font-size:14.5px}
 .brands{display:flex;flex-wrap:wrap;gap:10px}
 .brand{padding:12px 18px;border:1px solid var(--line);border-radius:10px;background:var(--bg2);font-weight:500;color:#cfdad3}
 
@@ -228,7 +235,7 @@ footer{padding:28px 0;text-align:center;font-size:13px;color:var(--muted);border
 <nav><div class="wrap">
   <a href="#" class="logo">Fahad<span>.</span>Khan</a>
   <div class="links">
-    <a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#experience">Experience</a>
+    <a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#social">Integrations</a><a href="#experience">Experience</a>
     <a href="#skills">Skills</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a>
   </div>
   <button class="menu" id="menu" aria-label="Open menu" aria-expanded="false">&#9776;</button>
@@ -306,6 +313,13 @@ footer{padding:28px 0;text-align:center;font-size:13px;color:var(--muted);border
   <div class="brands">
     <span class="brand">True Value</span><span class="brand">Do It Best</span><span class="brand">Ace Hardware</span><span class="brand">AZEK / TimberTech</span><span class="brand">James Hardie</span><span class="brand">Milwaukee Tool</span><span class="brand">Orgill</span><span class="brand">Big Green Egg</span><span class="brand">Disney</span><span class="brand">Spectrum (Charter)</span><span class="brand">Arrow</span><span class="brand">Saturn Text</span><span class="brand">Tripcam</span><span class="brand">BigMarker</span><span class="brand">Vice City Ventures</span><span class="brand">Dentaloo</span><span class="brand">Issa Dental</span><span class="brand">SOCH Psychological Clinics</span><span class="brand">Al Makkah City</span><span class="brand">Margalla Travel</span><span class="brand">Moto Master</span><span class="brand">Kode Alpha</span><span class="brand">Cafe Sol</span>
   </div>
+</div></section>
+
+<section id="social"><div class="wrap">
+  <div class="eyebrow">Social publishing integrations</div>
+  <h2>Every channel, one place</h2>
+  <p class="sub">The platforms I've integrated so clients can post, schedule and report from one dashboard. That includes the Meta App Review approvals needed for Instagram and Facebook publishing.</p>
+  <div class="socials" id="socials"></div>
 </div></section>
 
 <section id="experience"><div class="wrap">
@@ -531,7 +545,7 @@ const P=[
   b:["Meta Graph API integration with instagram_business_content_publish and instagram_basic","Took the apps through Meta App Review to approval","Facebook app permissions approved for client brands"],s:["Meta Graph API","Instagram","Facebook","App Review"]},
  {c:"Social & Messaging",t:"Social media integrations",w:"2020 – Present",
   d:"Publishing, ads and analytics across every major social channel.",
-  b:["Facebook, Instagram, TikTok, X / Twitter, LinkedIn and Discord","Facebook / Instagram / Google Ads campaigns and reporting","Adobe Marketo, HubSpot, Mailchimp and Mailgun email marketing"],s:["Meta","TikTok","X","LinkedIn","Discord"]},
+  b:["Facebook, Instagram, Threads, LinkedIn, X / Twitter, TikTok, YouTube, Pinterest, Bluesky, Mastodon, Telegram, Discord, Google Business Profile and WordPress","Facebook / Instagram / Google Ads campaigns and reporting","Adobe Marketo, HubSpot, Mailchimp and Mailgun email marketing"],s:["Meta","TikTok","X","LinkedIn","Discord"]},
  {c:"Social & Messaging",t:"Saturn Text",w:"Feb 2022 – Mar 2022 · EZ-AD TV",d:"Text blast platform for business SMS campaigns, with prepaid credit and auto-refill billing.",s:["Twilio","Telnyx","SMS"]},
  // Mobile
  {c:"Digital Signage",t:"EZ-AD TV Android & iOS apps",w:"Sep 2021 – Present · EZ-AD TV",f:1,g:["#00e5ff","#ff7a1a"],i:["ezad-ios","ezad-play"],u:[["App Store","https://apps.apple.com/us/app/ez-ad-mobile-app/id825347019"],["Google Play","https://play.google.com/store/apps/details?id=com.flexsin.ezadtv&hl=en_US"]],
@@ -634,7 +648,7 @@ renderP("All");
 const S=[
  ["AI & LLMs",["Claude","Claude Code","OpenAI GPT","ChatGPT","Google Gemini","Google Vertex AI","xAI Grok","DeepSeek","Qwen","Kimi","Open-weight models run locally","RunPod GPUs","LLM agents","Agentic workflows","Multi-model routing","Prompt engineering","Vision & image captioning","FastAPI / Flask AI services","AI governance"]],
  ["Web3, Crypto & Wallets",["Ethereum","Polygon","Binance Smart Chain","Solidity smart contracts","ERC-20 tokens","ERC-721 NFTs","MetaMask","Trust Wallet","WalletConnect","Custodial wallet infrastructure","Mobile wallets","Crypto exchanges","Spot trading","MoonPay on-ramp","KYC / AML APIs","Ethereum JSON-RPC"]],
- ["Social & Messaging APIs",["Meta Graph API","Instagram publishing","Facebook apps & App Review","TikTok","X / Twitter","LinkedIn","Discord","Google Ads","Twilio","Telnyx","Mailchimp","Mailgun","Adobe Marketo Engage","Adobe Journey Optimizer","HubSpot","Salesforce"]],
+ ["Social & Messaging APIs",["Meta Graph API","Instagram publishing","Facebook apps & App Review","Threads","TikTok","YouTube","X / Twitter","LinkedIn","Pinterest","Bluesky","Mastodon","Telegram","Discord","Google Business Profile","WordPress publishing","Google Ads","Twilio","Telnyx","Mailchimp","Mailgun","Adobe Marketo Engage","Adobe Journey Optimizer","HubSpot","Salesforce"]],
  ["Cloud & Infrastructure",["AWS","Microsoft Azure","Google Cloud Platform","Firebase","Cloudflare","RunPod","Docker","Kubernetes","On-prem / data center","Redis","Elasticsearch","MySQL","PostgreSQL","Monitoring & observability"]],
  ["Version Control & DevOps",["GitHub","GitLab","Bitbucket","CI/CD pipelines","Branch & merge workflows","Code review","Postman","Jira","Confluence","ClickUp","Monday.com","Trello","Asana","Notion","MS Project"]],
  ["Backend languages & frameworks",["PHP","Laravel","Node.js","Express","TypeScript","JavaScript","Python","FastAPI","Flask","Java","Spring Boot","C#","ASP.NET / .NET","Go","Phoenix (Elixir)","REST","GraphQL","WebSockets","Microservices"]],
@@ -648,6 +662,8 @@ const S=[
  ["Product & Delivery",["Product strategy & roadmaps","Backlog & sprint planning","BRD / SRS / SDS","User stories & acceptance criteria","Wireframes (Adobe XD)","UAT & QA workflows","Stakeholder management","Vendor management","Risk management","Six Sigma","Scrum / Kanban"]],
  ["Data & Marketing",["Power BI","Tableau","Google Analytics","Looker Studio","SEO / SEM","Email marketing","Social media marketing","Inbound marketing","Digital customer engagement"]]
 ];
+const SO=[["facebook","Facebook","png"],["instagram","Instagram","svg"],["linkedin","LinkedIn","png"],["x","X (Twitter)","png"],["tiktok","TikTok","png"],["youtube","YouTube","png"],["threads","Threads","png"],["pinterest","Pinterest","png"],["bluesky","Bluesky","png"],["google-business","Google Business Profile","png"],["mastodon","Mastodon","png"],["telegram","Telegram","png"],["wordpress","WordPress","png"]];
+document.getElementById('socials').innerHTML=SO.map(([f,n,e])=>`<div class="soc"><img src="assets/social/${f}.${e}" alt="" loading="lazy"><span>${esc(n)}</span></div>`).join('');
 document.getElementById('skillsGrid').innerHTML=S.map(([h,l])=>`<div class="card skill"><h3>${esc(h)} <em>${l.length}</em></h3><div class="pills">${l.map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</div></div>`).join('');
 
 /* certifications: [title, issuer, date, url, pdf, cat] */
